@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>ООО "Океан Звёзд" | Международная торговая компания</title>
+    <script src="https://image.uc.cn/s/uae/g/3n/mos-production/fontawesome-free-7.1.0-web/js/all.min.js"></script>
+    <script src="https://image.uc.cn/s/uae/g/3n/mos-production/0915/3.4.17.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-black: #000000;
+            --dark-gray: #2C3E50;
+            --champagne-gold: #D4AF37;
+            --light-gold: #E6C158;
+            --light-bg: #F8F9FA;
+        }
+        
+        * {
+            font-family: 'Inter', 'Arial', 'Tahoma', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* 自定义时间线样式 */
+        .custom-process-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .custom-process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--champagne-gold), rgba(212, 175, 55, 0.3));
+            transform: translateX(-50%);
+        }
+        
+        .custom-process-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        
+        .custom-process-item:nth-child(odd) {
+            padding-right: calc(50% + 2rem);
+            text-align: right;
+        }
+        
+        .custom-process-item:nth-child(even) {
+            padding-left: calc(50% + 2rem);
+            text-align: left;
+        }
+        
+        .custom-process-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--champagne-gold);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+        }
+        
+        .custom-process-item:nth-child(odd) .custom-process-dot {
+            right: calc(50% - 10px);
+        }
+        
+        .custom-process-item:nth-child(even) .custom-process-dot {
+            left: calc(50% - 10px);
+        }
+        
+        /* 卡片悬停效果 */
+        .custom-service-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .custom-service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--champagne-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .custom-process-timeline::before {
+                left: 30px;
+            }
+            
+            .custom-process-item:nth-child(odd),
+            .custom-process-item:nth-child(even) {
+                padding-left: 60px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .custom-process-item:nth-child(odd) .custom-process-dot,
+            .custom-process-item:nth-child(even) .custom-process-dot {
+                left: 20px;
+                right: auto;
+            }
+        }
+        
+        /* 语言切换按钮样式 */
+        .custom-lang-btn {
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .custom-lang-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--champagne-gold);
+        }
+        
+        .custom-lang-btn.active {
+            background-color: var(--champagne-gold);
+            color: var(--primary-black);
+            border-color: var(--champagne-gold);
+        }
+        
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+<script>
+!(function(j,a,g){j.__itrace_conf = {bid: 'kt40h0wl-koyh4af8',rel: '', uid: '6f9f4c67-f8c3-4bdb-8141-67358ef1b67d' ,  spa: true, plugins:['jserror','interface','perf','resource','flow','blank']};var b = a.createElement("script");var d = a.getElementsByTagName("script")[0];b.type = "text/javascript";b.crossorigin = true;b.async = true;b.onload = function(){j.__itrace && j.__itrace.setReady()};d.parentNode.insertBefore(b,d);b.src = g})(window, document, "https://g.alicdn.com/woodpeckerx/itrace-next/itrace.iife.js")
+</script>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Навигация -->
+    <nav class="fixed top-0 left-0 right-0 bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Логотип -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-champagne-gold to-light-gold flex items-center justify-center mr-3">
+                        <i class="fas fa-anchor text-gray-900"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">ООО "Океан Звёзд"</h1>
+                        <p class="text-xs text-gray-400">Международная торговля</p>
+                    </div>
+                </div>
+                
+                <!-- Навигационные ссылки -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="hover:text-champagne-gold transition-colors">Главная</a>
+                    <a href="#services" class="hover:text-champagne-gold transition-colors">Услуги</a>
+                    <a href="#process" class="hover:text-champagne-gold transition-colors">Процесс</a>
+                    <a href="#contact" class="hover:text-champagne-gold transition-colors">Контакты</a>
+                </div>
+                
+                <!-- Кнопки переключения языка -->
+                <div class="flex space-x-2">
+                    <button id="lang-ru" class="custom-lang-btn px-3 py-1 rounded text-sm active">RU</button>
+                    <button id="lang-en" class="custom-lang-btn px-3 py-1 rounded text-sm">EN</button>
+                    <button id="lang-zh" class="custom-lang-btn px-3 py-1 rounded text-sm">中文</button>
+                </div>
+                
+                <!-- Мобильное меню -->
+                <button id="mobile-menu-btn" class="md:hidden text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Мобильное меню (скрытое) -->
+        <div id="mobile-menu" class="md:hidden bg-gray-800 border-t border-gray-700 hidden">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#hero" class="py-2 hover:text-champagne-gold">Главная</a>
+                <a href="#services" class="py-2 hover:text-champagne-gold">Услуги</a>
+                <a href="#process" class="py-2 hover:text-champagne-gold">Процесс</a>
+                <a href="#contact" class="py-2 hover:text-champagne-gold">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой раздел -->
+    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-block px-6 py-2 bg-gradient-to-r from-champagne-gold/20 to-light-gold/20 rounded-full border border-champagne-gold/30 mb-6">
+                    <span class="text-champagne-gold font-medium" data-i18n="hero.tagline">Ваш надёжный поставщик из Китая</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-i18n="hero.title">
+                    Качественно, быстро, <span class="text-champagne-gold">глобально</span>
+                </h1>
+                
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto" data-i18n="hero.description">
+                    ООО "Океан Звёзд" специализируется на международной торговле и поставках оборудования из Китая. 
+                    Мы находим оптимальные решения для вашего бизнеса, обеспечивая высочайшее качество и конкурентоспособные цены.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#services" class="px-8 py-3 bg-gradient-to-r from-champagne-gold to-light-gold text-gray-900 font-semibold rounded-lg hover:shadow-lg hover:shadow-champagne-gold/30 transition-all" data-i18n="hero.cta.services">
+                        Наши услуги
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border border-champagne-gold text-champagne-gold font-semibold rounded-lg hover:bg-champagne-gold/10 transition-all" data-i18n="hero.cta.contact">
+                        Связаться с нами
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел услуг -->
+    <section id="services" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="services.title">Наши основные направления</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto" data-i18n="services.subtitle">
+                    Мы специализируемся на поставках оборудования и материалов из Китая по следующим категориям
+                </p>
+            </div>
+            
+            <!-- Карточки услуг -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Карточка 1: Строительные материалы -->
+                <div class="custom-service-card bg-gray-900/50 rounded-xl p-6">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-champagne-gold/20 to-light-gold/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-2xl text-champagne-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="services.category1.title">Строительные материалы для интерьера</h3>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-lightbulb text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category1.item1">Осветительные приборы</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-plug text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category1.item2">Низковольтное оборудование</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-paint-roller text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category1.item3">Лакокрасочные материалы</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-bath text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category1.item4">Сантехника</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-300 text-sm" data-i18n="services.category1.application">
+                        Для жилых, коммерческих помещений и гостиничных комплексов
+                    </p>
+                </div>
+                
+                <!-- Карточка 2: Промышленное оборудование -->
+                <div class="custom-service-card bg-gray-900/50 rounded-xl p-6">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-champagne-gold/20 to-light-gold/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-industry text-2xl text-champagne-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="services.category2.title">Промышленное оборудование</h3>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-box text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category2.item1">Взрывозащищённые распределительные коробки</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-lightbulb text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category2.item2">Взрывозащищённые светильники</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-300 text-sm" data-i18n="services.category2.application">
+                        Для нефтегазовой, химической промышленности и взрывоопасных сред
+                    </p>
+                </div>
+                
+                <!-- Карточка 3: Электрооборудование -->
+                <div class="custom-service-card bg-gray-900/50 rounded-xl p-6">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-champagne-gold/20 to-light-gold/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-2xl text-champagne-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="services.category3.title">Электрооборудование</h3>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-server text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category3.item1">Комплектные устройства высокого и низкого напряжения</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-exchange-alt text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category3.item2">Трансформаторы</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-network-wired text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category3.item3">Кабели</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-microchip text-champagne-gold mr-3"></i>
+                            <span data-i18n="services.category3.item4">Элементы электросетей</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-300 text-sm" data-i18n="services.category3.application">
+                        Для подстанций, промышленного энергоснабжения и инфраструктурных проектов
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Раздел расширенных возможностей -->
+            <div class="mt-16 bg-gradient-to-r from-gray-900/80 to-gray-800/80 rounded-2xl p-8 border border-champagne-gold/20">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold mb-4" data-i18n="services.extended.title">Мы предлагаем гораздо больше!</h3>
+                        <p class="text-gray-300 mb-4" data-i18n="services.extended.description1">
+                            Наша сеть поставщиков охватывает широкий спектр легкой промышленной продукции — 
+                            от бытовых приборов до компонентов автоматизации. Мы не ограничиваемся указанными категориями!
+                        </p>
+                        <p class="text-gray-300" data-i18n="services.extended.description2">
+                            Кроме того, мы предоставляем услуги металлообработки на заказ. Имея прямые связи с заводами по обработке металлов, 
+                            можем реализовать любые проекты: нестандартные детали, корпуса оборудования, элементы конструкций — 
+                            всё под ваши технические требования.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 mt-6 md:mt-0 flex justify-center">
+                        <div class="w-32 h-32 rounded-full bg-gradient-to-br from-champagne-gold/30 to-light-gold/30 flex items-center justify-center border-4 border-champagne-gold/20">
+                            <i class="fas fa-cogs text-5xl text-champagne-gold"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел нашего процесса -->
+    <section id="process" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="process.title">Как мы работаем</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto" data-i18n="process.subtitle">
+                    Прозрачный и эффективный процесс работы от запроса до поставки
+                </p>
+            </div>
+            
+            <!-- Временная шкала процесса -->
+            <div class="custom-process-timeline">
+                <!-- Шаг 1 -->
+                <div class="custom-process-item">
+                    <div class="custom-process-dot"></div>
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-champagne-gold/20 flex items-center justify-center mr-4">
+                                <span class="text-champagne-gold font-bold">1</span>
+                            </div>
+                            <h3 class="text-xl font-bold" data-i18n="process.step1.title">Запрос клиента</h3>
+                        </div>
+                        <p class="text-gray-300" data-i18n="process.step1.description">
+                            Вы сообщаете нам о необходимом товаре или оборудовании. Мы детально изучаем ваши требования, спецификации и сроки.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Шаг 2 -->
+                <div class="custom-process-item">
+                    <div class="custom-process-dot"></div>
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-champagne-gold/20 flex items-center justify-center mr-4">
+                                <span class="text-champagne-gold font-bold">2</span>
+                            </div>
+                            <h3 class="text-xl font-bold" data-i18n="process.step2.title">Поиск в Китае</h3>
+                        </div>
+                        <p class="text-gray-300" data-i18n="process.step2.description">
+                            Наша команда в Китае ищет оптимальных поставщиков по качеству и цене. Мы проводим предварительные переговоры и оцениваем образцы.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Шаг 3 -->
+                <div class="custom-process-item">
+                    <div class="custom-process-dot"></div>
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-champagne-gold/20 flex items-center justify-center mr-4">
+                                <span class="text-champagne-gold font-bold">3</span>
+                            </div>
+                            <h3 class="text-xl font-bold" data-i18n="process.step3.title">Согласование и заказ</h3>
+                        </div>
+                        <p class="text-gray-300" data-i18n="process.step3.description">
+                            Предоставляем вам варианты поставщиков с ценами и условиями. После вашего подтверждения оформляем заказ и контролируем производство.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Шаг 4 -->
+                <div class="custom-process-item">
+                    <div class="custom-process-dot"></div>
+                    <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-champagne-gold/20 flex items-center justify-center mr-4">
+                                <span class="text-champagne-gold font-bold">4</span>
+                            </div>
+                            <h3 class="text-xl font-bold" data-i18n="process.step4.title">Логистика и поставка</h3>
+                        </div>
+                        <p class="text-gray-300" data-i18n="process.step4.description">
+                            Организуем всю логистическую цепочку: отгрузку, таможенное оформление, доставку до вашего склада в России.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контактный раздел -->
+    <section id="contact" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="contact.title">Свяжитесь с нами</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto" data-i18n="contact.subtitle">
+                    Готовы обсудить ваши потребности и предложить оптимальное решение
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Контактная информация -->
+                <div>
+                    <div class="bg-gray-900/50 rounded-2xl p-8 border border-gray-700">
+                        <h3 class="text-2xl font-bold mb-6" data-i18n="contact.info.title">Контактная информация</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Электронная почта -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-champagne-gold/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-champagne-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1" data-i18n="contact.info.email.title">Электронная почта</h4>
+                                    <a href="mailto:gm-857421047@qq.com" class="text-champagne-gold hover:underline">gm-857421047@qq.com</a>
+                                    <p class="text-gray-300 text-sm mt-1" data-i18n="contact.info.email.note">Мы ответим вам в ближайшее время</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Рабочее время -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-champagne-gold/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-champagne-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1" data-i18n="contact.info.hours.title">Рабочее время</h4>
+                                    <p class="text-gray-300">10:00 – 17:00 (МСК)</p>
+                                    <p class="text-gray-300 text-sm mt-1" data-i18n="contact.info.hours.note">С понедельника по пятницу</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Адрес -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-champagne-gold/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-champagne-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1" data-i18n="contact.info.address.title">Адрес</h4>
+                                    <p class="text-gray-300">Москва, Россия</p>
+                                    <p class="text-gray-300 text-sm mt-1" data-i18n="contact.info.address.note">Наш офис расположен в Москве</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Бизнес-модель -->
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 rounded-full bg-champagne-gold/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-handshake text-champagne-gold"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1" data-i18n="contact.info.model.title">Бизнес-модель</h4>
+                                    <p class="text-gray-300 text-sm" data-i18n="contact.info.model.description">
+                                        Клиент формулирует потребность → Мы находим товар в Китае → Организуем закупку → Поставляем с минимальной наценкой
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Форма обратной связи -->
+                <div>
+                    <div class="bg-gray-900/50 rounded-2xl p-8 border border-gray-700">
+                        <h3 class="text-2xl font-bold mb-6" data-i18n="contact.form.title">Напишите нам</h3>
+                        
+                        <form id="contact-form">
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-300 mb-2" for="name" data-i18n="contact.form.name">Ваше имя</label>
+                                    <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2" for="company" data-i18n="contact.form.company">Компания</label>
+                                    <input type="text" id="company" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2" for="email" data-i18n="contact.form.email">Электронная почта</label>
+                                    <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-gray-300 mb-2" for="message" data-i18n="contact.form.message">Сообщение</label>
+                                    <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold" data-i18n="contact.form.message.placeholder"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full py-3 bg-gradient-to-r from-champagne-gold to-light-gold text-gray-900 font-semibold rounded-lg hover:shadow-lg hover:shadow-champagne-gold/30 transition-all mt-4" data-i18n="contact.form.submit">
+                                    Отправить сообщение
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div id="form-success" class="hidden mt-4 p-4 bg-green-900/30 border border-green-700 rounded-lg">
+                            <p class="text-green-300" data-i18n="contact.form.success">Сообщение отправлено! Мы свяжемся с вами в ближайшее время.</p>
+                        </div>
+                        
+                        <div id="form-error" class="hidden mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg">
+                            <p class="text-red-300" data-i18n="contact.form.error">Пожалуйста, заполните все обязательные поля.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-champagne-gold to-light-gold flex items-center justify-center mr-3">
+                            <i class="fas fa-anchor text-gray-900 text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">ООО "Океан Звёзд"</h3>
+                            <p class="text-gray-400 text-sm">Международная торговая компания</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 text-sm mb-2" data-i18n="footer.copyright">
+                        © 2026 ООО "Океан Звёзд". Все права защищены.
+                    </p>
+                    <p class="text-gray-500 text-xs" data-i18n="footer.disclaimer">
+                        Информация на сайте носит ознакомительный характер.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Инициализация переводов
+        const translations = {
+            ru: {
+                // Навигация
+                "nav.home": "Главная",
+                "nav.services": "Услуги",
+                "nav.process": "Процесс",
+                "nav.contact": "Контакты",
+                
+                // Герой раздел
+                "hero.tagline": "Ваш надёжный поставщик из Китая",
+                "hero.title": "Качественно, быстро, <span class='text-champagne-gold'>глобально</span>",
+                "hero.description": "ООО 'Океан Звёзд' специализируется на международной торговле и поставках оборудования из Китая. Мы находим оптимальные решения для вашего бизнеса, обеспечивая высочайшее качество и конкурентоспособные цены.",
+                "hero.cta.services": "Наши услуги",
+                "hero.cta.contact": "Связаться с нами",
+                
+                // Раздел услуг
+                "services.title": "Наши основные направления",
+                "services.subtitle": "Мы специализируемся на поставках оборудования и материалов из Китая по следующим категориям",
+                
+                "services.category1.title": "Строительные материалы для интерьера",
+                "services.category1.item1": "Осветительные приборы",
+                "services.category1.item2": "Низковольтное оборудование",
+                "services.category1.item3": "Лакокрасочные материалы",
+                "services.category1.item4": "Сантехника",
+                "services.category1.application": "Для жилых, коммерческих помещений и гостиничных комплексов",
+                
+                "services.category2.title": "Промышленное оборудование",
+                "services.category2.item1": "Взрывозащищённые распределительные коробки",
+                "services.category2.item2": "Взрывозащищённые светильники",
+                "services.category2.application": "Для нефтегазовой, химической промышленности и взрывоопасных сред",
+                
+                "services.category3.title": "Электрооборудование",
+                "services.category3.item1": "Комплектные устройства высокого и низкого напряжения",
+                "services.category3.item2": "Трансформаторы",
+                "services.category3.item3": "Кабели",
+                "services.category3.item4": "Элементы электросетей",
+                "services.category3.application": "Для подстанций, промышленного энергоснабжения и инфраструктурных проектов",
+                
+                "services.extended.title": "Мы предлагаем гораздо больше!",
+                "services.extended.description1": "Наша сеть поставщиков охватывает широкий спектр легкой промышленной продукции — от бытовых приборов до компонентов автоматизации. Мы не ограничиваемся указанными категориями!",
+                "services.extended.description2": "Кроме того, мы предоставляем услуги металлообработки на заказ. Имея прямые связи с заводами по обработке металлов, можем реализовать любые проекты: нестандартные детали, корпуса оборудования, элементы конструкций — всё под ваши технические требования.",
+                
+                // Раздел процесса
+                "process.title": "Как мы работаем",
+                "process.subtitle": "Прозрачный и эффективный процесс работы от запроса до поставки",
+                
+                "process.step1.title": "Запрос клиента",
+                "process.step1.description": "Вы сообщаете нам о необходимом товаре или оборудовании. Мы детально изучаем ваши требования, спецификации и сроки.",
+                
+                "process.step2.title": "Поиск в Китае",
+                "process.step2.description": "Наша команда в Китае ищет оптимальных поставщиков по качеству и цене. Мы проводим предварительные переговоры и оцениваем образцы.",
+                
+                "process.step3.title": "Согласование и заказ",
+                "process.step3.description": "Предоставляем вам варианты поставщиков с ценами и условиями. После вашего подтверждения оформляем заказ и контролируем производство.",
+                
+                "process.step4.title": "Логистика и поставка",
+                "process.step4.description": "Организуем всю логистическую цепочку: отгрузку, таможенное оформление, доставку до вашего склада в России.",
+                
+                // Контактный раздел
+                "contact.title": "Свяжитесь с нами",
+                "contact.subtitle": "Готовы обсудить ваши потребности и предложить оптимальное решение",
+                
+                "contact.info.title": "Контактная информация",
+                "contact.info.email.title": "Электронная почта",
+                "contact.info.email.note": "Мы ответим вам в ближайшее время",
+                "contact.info.hours.title": "Рабочее время",
+                "contact.info.hours.note": "С понедельника по пятницу",
+                "contact.info.address.title": "Адрес",
+                "contact.info.address.note": "Наш офис расположен в Москве",
+                "contact.info.model.title": "Бизнес-модель",
+                "contact.info.model.description": "Клиент формулирует потребность → Мы находим товар в Китае → Организуем закупку → Поставляем с минимальной наценкой",
+                
+                "contact.form.title": "Напишите нам",
+                "contact.form.name": "Ваше имя",
+                "contact.form.company": "Компания",
+                "contact.form.email": "Электронная почта",
+                "contact.form.message": "Сообщение",
+                "contact.form.message.placeholder": "Опишите ваш запрос, необходимые товары или спецификации...",
+                "contact.form.submit": "Отправить сообщение",
+                "contact.form.success": "Сообщение отправлено! Мы свяжемся с вами в ближайшее время.",
+                "contact.form.error": "Пожалуйста, заполните все обязательные поля.",
+                
+                // Подвал
+                "footer.copyright": "© 2026 ООО 'Океан Звёзд'. Все права защищены.",
+                "footer.disclaimer": "Информация на сайте носит ознакомительный характер."
+            },
+            
+            en: {
+                // Navigation
+                "nav.home": "Home",
+                "nav.services": "Services",
+                "nav.process": "Process",
+                "nav.contact": "Contact",
+                
+                // Hero section
+                "hero.tagline": "Your Reliable Supplier from China",
+                "hero.title": "Quality, Speed, <span class='text-champagne-gold'>Global Reach</span>",
+                "hero.description": "ООО 'Ocean Stars' specializes in international trade and equipment supplies from China. We find optimal solutions for your business, ensuring the highest quality and competitive prices.",
+                "hero.cta.services": "Our Services",
+                "hero.cta.contact": "Contact Us",
+                
+                // Services section
+                "services.title": "Our Main Directions",
+                "services.subtitle": "We specialize in supplying equipment and materials from China in the following categories",
+                
+                "services.category1.title": "Interior Construction Materials",
+                "services.category1.item1": "Lighting Fixtures",
+                "services.category1.item2": "Low-Voltage Equipment",
+                "services.category1.item3": "Paint and Coating Materials",
+                "services.category1.item4": "Sanitary Ware",
+                "services.category1.application": "For residential, commercial premises and hotel complexes",
+                
+                "services.category2.title": "Industrial Equipment",
+                "services.category2.item1": "Explosion-Proof Distribution Boxes",
+                "services.category2.item2": "Explosion-Proof Lighting",
+                "services.category2.application": "For oil and gas, chemical industries and hazardous environments",
+                
+                "services.category3.title": "Electrical Equipment",
+                "services.category3.item1": "Complete High and Low Voltage Devices",
+                "services.category3.item2": "Transformers",
+                "services.category3.item3": "Cables",
+                "services.category3.item4": "Power Grid Components",
+                "services.category3.application": "For substations, industrial power supply and infrastructure projects",
+                
+                "services.extended.title": "We Offer Much More!",
+                "services.extended.description1": "Our supplier network covers a wide range of light industrial products — from household appliances to automation components. We are not limited to the listed categories!",
+                "services.extended.description2": "In addition, we provide custom metal processing services. With direct connections to metal processing plants, we can implement any projects: non-standard parts, equipment housings, structural elements — all according to your technical requirements.",
+                
+                // Process section
+                "process.title": "How We Work",
+                "process.subtitle": "Transparent and efficient process from inquiry to delivery",
+                
+                "process.step1.title": "Customer Inquiry",
+                "process.step1.description": "You inform us about the required goods or equipment. We study your requirements, specifications and deadlines in detail.",
+                
+                "process.step2.title": "Search in China",
+                "process.step2.description": "Our team in China searches for optimal suppliers in terms of quality and price. We conduct preliminary negotiations and evaluate samples.",
+                
+                "process.step3.title": "Approval and Order",
+                "process.step3.description": "We provide you with supplier options with prices and conditions. After your confirmation, we place the order and control production.",
+                
+                "process.step4.title": "Logistics and Delivery",
+                "process.step4.description": "We organize the entire logistics chain: shipment, customs clearance, delivery to your warehouse in Russia.",
+                
+                // Contact section
+                "contact.title": "Contact Us",
+                "contact.subtitle": "Ready to discuss your needs and offer the optimal solution",
+                
+                "contact.info.title": "Contact Information",
+                "contact.info.email.title": "Email",
+                "contact.info.email.note": "We will respond to you as soon as possible",
+                "contact.info.hours.title": "Working Hours",
+                "contact.info.hours.note": "Monday to Friday",
+                "contact.info.address.title": "Address",
+                "contact.info.address.note": "Our office is located in Moscow",
+                "contact.info.model.title": "Business Model",
+                "contact.info.model.description": "Customer defines need → We find product in China → Organize procurement → Supply with minimal markup",
+                
+                "contact.form.title": "Write to Us",
+                "contact.form.name": "Your Name",
+                "contact.form.company": "Company",
+                "contact.form.email": "Email",
+                "contact.form.message": "Message",
+                "contact.form.message.placeholder": "Describe your inquiry, required goods or specifications...",
+                "contact.form.submit": "Send Message",
+                "contact.form.success": "Message sent! We will contact you as soon as possible.",
+                "contact.form.error": "Please fill in all required fields.",
+                
+                // Footer
+                "footer.copyright": "© 2026 ООО 'Ocean Stars'. All rights reserved.",
+                "footer.disclaimer": "Information on the website is for informational purposes only."
+            },
+            
+            zh: {
+                // 导航
+                "nav.home": "首页",
+                "nav.services": "服务项目",
+                "nav.process": "业务流程",
+                "nav.contact": "联系方式",
+                
+                // 首页横幅
+                "hero.tagline": "您可靠的中国供应商",
+                "hero.title": "高品质、高效率、<span class='text-champagne-gold'>全球化</span>",
+                "hero.description": "ООО '海洋之星' 专注于国际贸易和中国设备供应。我们为您的业务寻找最佳解决方案，确保最高质量和有竞争力的价格。",
+                "hero.cta.services": "我们的服务",
+                "hero.cta.contact": "联系我们",
+                
+                // 服务部分
+                "services.title": "我们的主要业务方向",
+                "services.subtitle": "我们专注于从中国供应以下类别的设备和材料",
+                
+                "services.category1.title": "室内装修建材",
+                "services.category1.item1": "照明灯具",
+                "services.category1.item2": "低压电器",
+                "services.category1.item3": "装修涂料",
+                "services.category1.item4": "卫浴",
+                "services.category1.application": "适用于住宅、商业空间和酒店工程",
+                
+                "services.category2.title": "工业设备",
+                "services.category2.item1": "防爆配电箱",
+                "services.category2.item2": "防爆灯",
+                "services.category2.application": "适用于石油化工、矿井、易燃环境",
+                
+                "services.category3.title": "电力设备",
+                "services.category3.item1": "高低压成套设备",
+                "services.category3.item2": "变压器",
+                "services.category3.item3": "电缆",
+                "services.category3.item4": "电力元器件",
+                "services.category3.application": "适用于变电站、工厂供电系统、基础设施建设",
+                
+                "services.extended.title": "我们提供更多服务！",
+                "services.extended.description1": "我们的供应商网络覆盖广泛的轻工业产品——从家用电器到自动化组件。我们不仅限于上述类目！",
+                "services.extended.description2": "此外，我们提供金属加工定制服务。凭借与金属加工厂的直接合作渠道，可承接各类定制项目：非标零件、设备外壳、结构件等，完全按照您的技术要求生产。",
+                
+                // 流程部分
+                "process.title": "我们的工作流程",
+                "process.subtitle": "从询价到交付的透明高效流程",
+                
+                "process.step1.title": "客户需求",
+                "process.step1.description": "您告知我们所需的商品或设备。我们详细研究您的要求、规格和期限。",
+                
+                "process.step2.title": "中国寻源",
+                "process.step2.description": "我们在中国的团队寻找质量和价格最优的供应商。我们进行初步谈判并评估样品。",
+                
+                "process.step3.title": "确认与订购",
+                "process.step3.description": "我们为您提供供应商选项及价格条件。经您确认后，我们下订单并控制生产。",
+                
+                "process.step4.title": "物流与交付",
+                "process.step4.description": "我们组织整个物流链：发货、报关、运输至您在俄罗斯的仓库。",
+                
+                // 联系部分
+                "contact.title": "联系我们",
+                "contact.subtitle": "随时准备讨论您的需求并提供最优解决方案",
+                
+                "contact.info.title": "联系信息",
+                "contact.info.email.title": "电子邮箱",
+                "contact.info.email.note": "我们将尽快回复您",
+                "contact.info.hours.title": "工作时间",
+                "contact.info.hours.note": "周一至周五",
+                "contact.info.address.title": "地址",
+                "contact.info.address.note": "我们的办公室位于莫斯科",
+                "contact.info.model.title": "商业模式",
+                "contact.info.model.description": "客户提出需求→我们在中国寻找商品→组织采购→以最低差价供应",
+                
+                "contact.form.title": "给我们留言",
+                "contact.form.name": "您的姓名",
+                "contact.form.company": "公司",
+                "contact.form.email": "电子邮箱",
+                "contact.form.message": "留言",
+                "contact.form.message.placeholder": "描述您的需求、所需商品或规格...",
+                "contact.form.submit": "发送消息",
+                "contact.form.success": "消息已发送！我们将尽快与您联系。",
+                "contact.form.error": "请填写所有必填字段。",
+                
+                // 页脚
+                "footer.copyright": "© 2026 ООО '海洋之星'。保留所有权利。",
+                "footer.disclaimer": "网站上的信息仅供参考。"
+            }
+        };
+
+        // Текущий язык
+        let currentLang = 'ru';
+
+        // Функция изменения языка
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Обновляем активную кнопку
+            document.querySelectorAll('.custom-lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`lang-${lang}`).classList.add('active');
+            
+            // Обновляем все элементы с data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Сохраняем язык в localStorage
+            localStorage.setItem('userLanguage', lang);
+        }
+
+        // Инициализация языка
+        document.addEventListener('DOMContentLoaded', function() {
+            // Проверяем сохраненный язык
+            const savedLang = localStorage.getItem('userLanguage') || 'ru';
+            changeLanguage(savedLang);
+            
+            // Обработчики кнопок переключения языка
+            document.getElementById('lang-ru').addEventListener('click', () => changeLanguage('ru'));
+            document.getElementById('lang-en').addEventListener('click', () => changeLanguage('en'));
+            document.getElementById('lang-zh').addEventListener('click', () => changeLanguage('zh'));
+            
+            // Мобильное меню
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuBtn.innerHTML = mobileMenu.classList.contains('hidden') 
+                    ? '<i class="fas fa-bars"></i>' 
+                    : '<i class="fas fa-times"></i>';
+            });
+            
+            // Закрытие мобильного меню при клике на ссылку
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Обработка формы
+            const contactForm = document.getElementById('contact-form');
+            const formSuccess = document.getElementById('form-success');
+            const formError = document.getElementById('form-error');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                
+                if (name && email && message) {
+                    // В реальном приложении здесь будет отправка на сервер
+                    // Для демонстрации просто показываем успешное сообщение
+                    
+                    formSuccess.classList.remove('hidden');
+                    formError.classList.add('hidden');
+                    
+                    // Очищаем форму
+                    contactForm.reset();
+                    
+                    // Скрываем сообщение об успехе через 5 секунд
+                    setTimeout(() => {
+                        formSuccess.classList.add('hidden');
+                    }, 5000);
+                } else {
+                    formError.classList.remove('hidden');
+                    formSuccess.classList.add('hidden');
+                }
+            });
+            
+            // Плавная прокрутка
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Настраиваем Tailwind цвета
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'champagne-gold': '#D4AF37',
+                        'light-gold': '#E6C158',
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
