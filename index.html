@@ -487,7 +487,7 @@
                             <div class="space-y-4">
                                 <div>
                                     <label class="block text-gray-300 mb-2" for="name" data-i18n="contact.form.name">Ваше имя</label>
-                                    <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold">
+                                    <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold" required>
                                 </div>
                                 
                                 <div>
@@ -497,12 +497,12 @@
                                 
                                 <div>
                                     <label class="block text-gray-300 mb-2" for="email" data-i18n="contact.form.email">Электронная почта</label>
-                                    <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold">
+                                    <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold" required>
                                 </div>
                                 
                                 <div>
                                     <label class="block text-gray-300 mb-2" for="message" data-i18n="contact.form.message">Сообщение</label>
-                                    <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold" data-i18n="contact.form.message.placeholder"></textarea>
+                                    <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold" placeholder="Опишите ваш запрос, необходимые товары или спецификации..." required></textarea>
                                 </div>
                                 
                                 <button type="submit" class="w-full py-3 bg-gradient-to-r from-champagne-gold to-light-gold text-gray-900 font-semibold rounded-lg hover:shadow-lg hover:shadow-champagne-gold/30 transition-all mt-4" data-i18n="contact.form.submit">
@@ -517,6 +517,10 @@
                         
                         <div id="form-error" class="hidden mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg">
                             <p class="text-red-300" data-i18n="contact.form.error">Пожалуйста, заполните все обязательные поля.</p>
+                        </div>
+                        
+                        <div id="form-submitting" class="hidden mt-4 p-4 bg-blue-900/30 border border-blue-700 rounded-lg">
+                            <p class="text-blue-300">Отправка сообщения...</p>
                         </div>
                     </div>
                 </div>
@@ -878,32 +882,79 @@
             const contactForm = document.getElementById('contact-form');
             const formSuccess = document.getElementById('form-success');
             const formError = document.getElementById('form-error');
+            const formSubmitting = document.getElementById('form-submitting');
             
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
+                // Показываем статус отправки
+                formSubmitting.classList.remove('hidden');
+                formSuccess.classList.add('hidden');
+                formError.classList.add('hidden');
+                
+                // Получаем значения полей
                 const name = document.getElementById('name').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const message = document.getElementById('message').value.trim();
+                const company = document.getElementById('company').value.trim();
                 
-                if (name && email && message) {
-                    // В реальном приложении здесь будет отправка на сервер
-                    // Для демонстрации просто показываем успешное сообщение
+                // Проверяем правильность формата email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!name || !email || !message) {
+                    formError.classList.remove('hidden');
+                    formSuccess.classList.add('hidden');
+                    formSubmitting.classList.add('hidden');
+                    return;
+                }
+                
+                if (!emailRegex.test(email)) {
+                    formError.innerHTML = '<p class="text-red-300">Пожалуйста, введите действительный адрес электронной почты.</p>';
+                    formError.classList.remove('hidden');
+                    formSuccess.classList.add('hidden');
+                    formSubmitting.classList.add('hidden');
+                    return;
+                }
+                
+                // Отправляем данные через EmailJS
+                const templateParams = {
+                    from_name: name,
+                    from_email: email,
+                    company: company,
+                    message: message,
+                    to_email: 'gm-857421047@qq.com'
+                };
+                
+                // Имитация отправки письма (в реальной реализации использовался бы EmailJS или серверный скрипт)
+                // Здесь используется setTimeout для демонстрации процесса отправки
+                setTimeout(() => {
+                    // В реальном приложении здесь будет вызов API для отправки письма
+                    // emailjs.send('your_service_id', 'your_template_id', templateParams)
+                    //     .then(function(response) {
+                    //         console.log('SUCCESS!', response.status, response.text);
+                    //         formSuccess.classList.remove('hidden');
+                    //         formError.classList.add('hidden');
+                    //         formSubmitting.classList.add('hidden');
+                    //         contactForm.reset();
+                    //     }, function(error) {
+                    //         console.log('FAILED...', error);
+                    //         formError.innerHTML = '<p class="text-red-300">Ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз.</p>';
+                    //         formError.classList.remove('hidden');
+                    //         formSuccess.classList.add('hidden');
+                    //         formSubmitting.classList.add('hidden');
+                    //     });
                     
+                    // Демонстрация успешной отправки
                     formSuccess.classList.remove('hidden');
                     formError.classList.add('hidden');
-                    
-                    // Очищаем форму
+                    formSubmitting.classList.add('hidden');
                     contactForm.reset();
                     
                     // Скрываем сообщение об успехе через 5 секунд
                     setTimeout(() => {
                         formSuccess.classList.add('hidden');
                     }, 5000);
-                } else {
-                    formError.classList.remove('hidden');
-                    formSuccess.classList.add('hidden');
-                }
+                }, 2000); // Имитация задержки на отправку
             });
             
             // Плавная прокрутка
