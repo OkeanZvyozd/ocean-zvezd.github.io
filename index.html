@@ -134,6 +134,9 @@
 <script>
 !(function(j,a,g){j.__itrace_conf = {bid: 'kt40h0wl-koyh4af8',rel: '', uid: '6f9f4c67-f8c3-4bdb-8141-67358ef1b67d' ,  spa: true, plugins:['jserror','interface','perf','resource','flow','blank']};var b = a.createElement("script");var d = a.getElementsByTagName("script")[0];b.type = "text/javascript";b.crossorigin = true;b.async = true;b.onload = function(){j.__itrace && j.__itrace.setReady()};d.parentNode.insertBefore(b,d);b.src = g})(window, document, "https://g.alicdn.com/woodpeckerx/itrace-next/itrace.iife.js")
 </script>
+<script>
+!(function(j,a,g){j.__itrace_conf = {bid: 'kt40h0wl-koyh4af8',rel: '', uid: '382bb329-94f6-49cf-b15f-0b734c7d7be0' ,  spa: true, plugins:['jserror','interface','perf','resource','flow','blank']};var b = a.createElement("script");var d = a.getElementsByTagName("script")[0];b.type = "text/javascript";b.crossorigin = true;b.async = true;b.onload = function(){j.__itrace && j.__itrace.setReady()};d.parentNode.insertBefore(b,d);b.src = g})(window, document, "https://g.alicdn.com/woodpeckerx/itrace-next/itrace.iife.js")
+</script>
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Навигация -->
@@ -487,7 +490,7 @@
                             <div class="space-y-4">
                                 <div>
                                     <label class="block text-gray-300 mb-2" for="name" data-i18n="contact.form.name">Ваше имя</label>
-                                    <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold" required>
+                                    <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold">
                                 </div>
                                 
                                 <div>
@@ -497,12 +500,12 @@
                                 
                                 <div>
                                     <label class="block text-gray-300 mb-2" for="email" data-i18n="contact.form.email">Электронная почта</label>
-                                    <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold" required>
+                                    <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold">
                                 </div>
                                 
                                 <div>
                                     <label class="block text-gray-300 mb-2" for="message" data-i18n="contact.form.message">Сообщение</label>
-                                    <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold" placeholder="Опишите ваш запрос, необходимые товары или спецификации..." required></textarea>
+                                    <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-champagne-gold" data-i18n="contact.form.message.placeholder"></textarea>
                                 </div>
                                 
                                 <button type="submit" class="w-full py-3 bg-gradient-to-r from-champagne-gold to-light-gold text-gray-900 font-semibold rounded-lg hover:shadow-lg hover:shadow-champagne-gold/30 transition-all mt-4" data-i18n="contact.form.submit">
@@ -517,10 +520,6 @@
                         
                         <div id="form-error" class="hidden mt-4 p-4 bg-red-900/30 border border-red-700 rounded-lg">
                             <p class="text-red-300" data-i18n="contact.form.error">Пожалуйста, заполните все обязательные поля.</p>
-                        </div>
-                        
-                        <div id="form-submitting" class="hidden mt-4 p-4 bg-blue-900/30 border border-blue-700 rounded-lg">
-                            <p class="text-blue-300">Отправка сообщения...</p>
                         </div>
                     </div>
                 </div>
@@ -570,7 +569,7 @@
                 // Герой раздел
                 "hero.tagline": "Ваш надёжный поставщик из Китая",
                 "hero.title": "Качественно, быстро, <span class='text-champagne-gold'>глобально</span>",
-                "hero.description": "ООО 'Океан Звёзд' специализируется на международной торговле и поставках оборудования из Китая. Мы находим оптимальные решения для вашего бизнеса, обеспечивая высочайшее качество и конкурентоспособные цены.",
+                "hero.description": "ООО \"Океан Звёзд\" специализируется на международной торговле и поставках оборудования из Китая. Мы находим оптимальные решения для вашего бизнеса, обеспечивая высочайшее качество и конкурентоспособные цены.",
                 "hero.cta.services": "Наши услуги",
                 "hero.cta.contact": "Связаться с нами",
                 
@@ -642,7 +641,7 @@
                 "contact.form.error": "Пожалуйста, заполните все обязательные поля.",
                 
                 // Подвал
-                "footer.copyright": "© 2026 ООО 'Океан Звёзд'. Все права защищены.",
+                "footer.copyright": "© 2026 ООО \"Океан Звёзд\". Все права защищены.",
                 "footer.disclaimer": "Информация на сайте носит ознакомительный характер."
             },
             
@@ -882,79 +881,46 @@
             const contactForm = document.getElementById('contact-form');
             const formSuccess = document.getElementById('form-success');
             const formError = document.getElementById('form-error');
-            const formSubmitting = document.getElementById('form-submitting');
             
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Показываем статус отправки
-                formSubmitting.classList.remove('hidden');
-                formSuccess.classList.add('hidden');
-                formError.classList.add('hidden');
-                
-                // Получаем значения полей
                 const name = document.getElementById('name').value.trim();
                 const email = document.getElementById('email').value.trim();
-                const message = document.getElementById('message').value.trim();
                 const company = document.getElementById('company').value.trim();
+                const message = document.getElementById('message').value.trim();
                 
-                // Проверяем правильность формата email
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                
-                if (!name || !email || !message) {
-                    formError.classList.remove('hidden');
-                    formSuccess.classList.add('hidden');
-                    formSubmitting.classList.add('hidden');
-                    return;
-                }
-                
-                if (!emailRegex.test(email)) {
-                    formError.innerHTML = '<p class="text-red-300">Пожалуйста, введите действительный адрес электронной почты.</p>';
-                    formError.classList.remove('hidden');
-                    formSuccess.classList.add('hidden');
-                    formSubmitting.classList.add('hidden');
-                    return;
-                }
-                
-                // Отправляем данные через EmailJS
-                const templateParams = {
-                    from_name: name,
-                    from_email: email,
-                    company: company,
-                    message: message,
-                    to_email: 'gm-857421047@qq.com'
-                };
-                
-                // Имитация отправки письма (в реальной реализации использовался бы EmailJS или серверный скрипт)
-                // Здесь используется setTimeout для демонстрации процесса отправки
-                setTimeout(() => {
-                    // В реальном приложении здесь будет вызов API для отправки письма
-                    // emailjs.send('your_service_id', 'your_template_id', templateParams)
-                    //     .then(function(response) {
-                    //         console.log('SUCCESS!', response.status, response.text);
-                    //         formSuccess.classList.remove('hidden');
-                    //         formError.classList.add('hidden');
-                    //         formSubmitting.classList.add('hidden');
-                    //         contactForm.reset();
-                    //     }, function(error) {
-                    //         console.log('FAILED...', error);
-                    //         formError.innerHTML = '<p class="text-red-300">Ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз.</p>';
-                    //         formError.classList.remove('hidden');
-                    //         formSuccess.classList.add('hidden');
-                    //         formSubmitting.classList.add('hidden');
-                    //     });
+                if (name && email && message) {
+                    // Формируем тело письма
+                    const subject = encodeURIComponent('Новое сообщение с сайта ООО "Океан Звёзд"');
+                    const body = encodeURIComponent(
+                        `Имя: ${name}\n` +
+                        `Компания: ${company || 'Не указана'}\n` +
+                        `Email: ${email}\n\n` +
+                        `Сообщение:\n${message}`
+                    );
                     
-                    // Демонстрация успешной отправки
+                    // Создаем mailto-ссылку для отправки письма
+                    const mailtoLink = `mailto:gm-857421047@qq.com?subject=${subject}&body=${body}`;
+                    
+                    // Открываем почтовый клиент пользователя
+                    window.location.href = mailtoLink;
+                    
+                    // Показываем сообщение об успешной отправке
                     formSuccess.classList.remove('hidden');
                     formError.classList.add('hidden');
-                    formSubmitting.classList.add('hidden');
+                    
+                    // Очищаем форму
                     contactForm.reset();
                     
                     // Скрываем сообщение об успехе через 5 секунд
                     setTimeout(() => {
                         formSuccess.classList.add('hidden');
                     }, 5000);
-                }, 2000); // Имитация задержки на отправку
+                } else {
+                    formError.classList.remove('hidden');
+                    formSuccess.classList.add('hidden');
+                }
             });
             
             // Плавная прокрутка
@@ -990,3 +956,6 @@
     </script>
 </body>
 </html>
+
+
+
